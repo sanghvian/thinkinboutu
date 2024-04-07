@@ -1,0 +1,34 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "protocol": "inspector",
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Express Server",
+            "skipFiles": ["<node_internals>/**"],
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
+            "restart": true,
+            "runtimeArgs": [
+                "--watch",
+                "src", // Your source files directory
+                "--ext",
+                "ts,tsx", // File extensions to watch
+                "--exec",
+                "ts-node"
+            ],
+            "args": [
+                "-r", "tsconfig-paths/register",
+                "${workspaceFolder}/src/index.ts"
+            ],
+            "sourceMaps": true,
+            "resolveSourceMapLocations": [
+                "${workspaceFolder}/**",
+                "!**/node_modules/**"
+            ],
+            "cwd": "${workspaceFolder}",
+            "internalConsoleOptions": "neverOpen"
+        }
+        
+    ]
+}
